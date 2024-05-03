@@ -3,8 +3,13 @@
 @section('content')
 
 <div class="w-75 m-auto">
+  @if($errors->has('error'))
   <div class="alert alert-danger">
+    {{ $errors->first('error') }}
   </div>
+            
+  @endif
+  
   <form action="{{route('pagar')}}" method="POST">
     @csrf
     <input type="hidden" value="{{isset($datos['cuota']) ? $datos['cuota']->id_cuota:old('id_cuota')}}" 

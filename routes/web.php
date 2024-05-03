@@ -16,7 +16,7 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/index',[HomeController::class,'index'])->name('index');
+Route::get('/',[HomeController::class,'index'])->name('index');
 Route::get('/listar_cuotas/{id}',[CuotaController::class,'listar_cuotas_alumnos'])->name('listar_cuotas_alumnos');
 Route::get('/pay/{id_cuota}',[CuotaController::class,'mostrar_frm_pago'])->name('pay');
 Route::post('/pagar',[PagoController::class,'verificar_pago'])->name('pagar');

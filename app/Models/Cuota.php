@@ -14,17 +14,6 @@ class Cuota extends Model
     protected $table="Cuotas";
     protected $fillable=['id_cuota','id_inscripcion','id_estado','monto','fecha_vencimiento'];
 
-    public function inscripcion():HasOne{
-        return $this->hasOne(Inscripcion::class,'id_inscripcion','id_inscripcion');
-    }
-    
-    public function estadoCuota():HasOne{
-        return $this->hasOne(EstadoCuota::class,'id_estado','id_estado');
-    }
-
-    public function usuarios():HasOneThrough{
-        return $this->hasOneThrough(Usuario::class,Inscripcion::class,'id_inscripcion','id_usuario','id_inscripcion','id_usuario');
-    }
     
     public static function getCuotaUsuario($id_alumno){
         return DB::table('cuotas')

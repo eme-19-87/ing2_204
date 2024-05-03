@@ -27,9 +27,9 @@ class PagoController extends Controller
 
         if($msgError==="") {
             $this->registrar_pago(floatval($monto),intval($id_cuota),intval($id_metodo));
-            return redirect('index');
+            return redirect('/')->withErrors(["success"=>"El pago fue registrado con éxito"]);
         } else{
-            redirect()->withErrors(["error"=>$msgError])->withInput();
+            return redirect()->back()->withErrors(["error"=>$msgError])->withInput();
         }
        
     }

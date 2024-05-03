@@ -14,13 +14,7 @@ class Pago extends Model
     protected $table="Pagos";
     protected $guarded=[];
 
-    public function cuotas():HasMany{
-        return $this->hasMany(Cuota::class,'id_cuota','id_cuota');
-    }
-
-    public function tipoPago():HasOne{
-        return $this->hasOne(TipoPago::class,'id_tipo_pago','id_tipo_pago');
-    }
+    
 
     public static function registrar_pago($monto,$id_cuota,$id_metodo){
         try {

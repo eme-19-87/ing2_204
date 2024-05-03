@@ -2,6 +2,7 @@
 @include('partials.navbar')
 @section('content')
 
+@if(count($cuotas)>0)
 <table class="table text-center">
     <thead>
       <tr>
@@ -16,7 +17,7 @@
       </tr>
     </thead>
     <tbody>
-        @forelse ($cuotas as $cuota)
+        @foreach ($cuotas as $cuota)
 
         <tr>
             <th>
@@ -54,12 +55,11 @@
             </th>
           </tr>
         
-    @empty
-        <div>
-            nada
-        </div>
-    @endforelse
-     
+    @endforeach
+         
+     @else
+         <h3 class="alert alert-success text-center">No hay cuotas impagas</h3>
+     @endif
       
     </tbody>
   </table>
